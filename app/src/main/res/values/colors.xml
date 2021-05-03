@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="turkishblue">#143D59</color>
+    <color name="lightorange">#F93800</color>
+    <color name="lightyellow">#F4B41A</color>
+    <color name="cream">#F2BC94</color>
+    <color name="thickbrown">#30110D</color>
+    <color name="lightbrown">#722620</color>
+
 </resources>
