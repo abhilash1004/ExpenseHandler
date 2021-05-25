@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Expense_Handler">
-        <activity android:name=".activities.SampleDisplayActivity"></activity>
+        <activity android:name=".HomePage"></activity>
+        <activity android:name=".activities.SampleDisplayActivity" />
         <activity android:name=".activities.SignUpActivity" />
         <activity android:name=".activities.Login_Activity" />
         <activity android:name=".MainActivity">
