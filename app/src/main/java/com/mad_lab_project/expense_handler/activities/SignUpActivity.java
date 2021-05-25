@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.mad_lab_project.expense_handler.HomePage;
 import com.mad_lab_project.expense_handler.MainActivity;
 import com.mad_lab_project.expense_handler.R;
 import com.mad_lab_project.expense_handler.databases.UserPassDatabase;
@@ -69,10 +70,8 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this,"Error in Registration", Toast.LENGTH_LONG).show();
                 }
 
-                Intent sampleActivityIntent = new Intent(SignUpActivity.this, SampleDisplayActivity.class);
-                startActivity(sampleActivityIntent);
-
-
+                Intent homePageIntent = new Intent(SignUpActivity.this, HomePage.class);
+                startActivity(homePageIntent);
             }
         });
 

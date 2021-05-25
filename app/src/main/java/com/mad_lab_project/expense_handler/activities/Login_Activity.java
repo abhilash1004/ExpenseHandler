@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.mad_lab_project.expense_handler.HomePage;
 import com.mad_lab_project.expense_handler.R;
 import com.mad_lab_project.expense_handler.databases.UserPassDatabase;
 
@@ -33,8 +34,8 @@ public class Login_Activity extends AppCompatActivity {
 
 
 
-                    Intent sampleActivityIntent = new Intent(Login_Activity.this, SampleDisplayActivity.class);
-                    startActivity(sampleActivityIntent);
+                    Intent homePageIntent = new Intent(Login_Activity.this, HomePage.class);
+                    startActivity(homePageIntent);
 
                 }
                 else {

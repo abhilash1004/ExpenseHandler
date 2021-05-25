@@ -3,8 +3,11 @@ package com.mad_lab_project.expense_handler;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.mad_lab_project.expense_handler.activities.AddExpenses;
 
 public class HomePage extends AppCompatActivity {
 
@@ -38,7 +41,8 @@ public class HomePage extends AppCompatActivity {
         cardedit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(HomePage.this, AddExpenses.class);
+                startActivity(intent);
             }
         });
 
