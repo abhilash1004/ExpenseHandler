@@ -13,5 +13,8 @@
     <color name="cream">#F2BC94</color>
     <color name="thickbrown">#30110D</color>
     <color name="lightbrown">#722620</color>
+    <color name="colorPrimaryDark">#2D383F</color>
+    <color name="colorAccent">#FF6C02</color>
+    <color name="backgroundcolor">#EEEDEF</color>
 
 </resources>
