@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Expense_Handler</string>
+    <string-array name="categoriesArray">
+        <item>Food</item>
+        <item>Transportation</item>
+        <item>Bills and Taxes</item>
+        <item>Groceries</item>
+        <item>Shopping</item>
+        <item>Entertainment</item>
+        <item>Self Improvement</item>
+        <item>Family Events</item>
+        <item>Miscellaneous</item>
+    </string-array>
 </resources>

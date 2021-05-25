@@ -14,6 +14,8 @@ import com.mad_lab_project.expense_handler.databases.UserPassDatabase;
 
 public class Login_Activity extends AppCompatActivity {
 
+    public static String loggedInUserId = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +30,12 @@ public class Login_Activity extends AppCompatActivity {
 
                 UserPassDatabase db = new UserPassDatabase(Login_Activity.this);
                 if(db.checkCredentialsEntered(emailEditText.getText().toString(),passEditText.getText().toString())) {
+
+
+
                     Intent sampleActivityIntent = new Intent(Login_Activity.this, SampleDisplayActivity.class);
                     startActivity(sampleActivityIntent);
+
                 }
                 else {
                     Toast.makeText(Login_Activity.this,"Wrong Credentials / user Doesnt Exist" , Toast.LENGTH_LONG).show();

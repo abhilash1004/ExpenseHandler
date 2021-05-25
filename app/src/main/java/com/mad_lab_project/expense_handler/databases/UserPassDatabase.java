@@ -9,6 +9,8 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.mad_lab_project.expense_handler.activities.Login_Activity;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -17,6 +19,7 @@ public class UserPassDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_EMAIL = "EMAIL";
     public static final String COLUMN_USERID = "USERID";
     public static final String COLUMN_PASSWORD = "PASSWORD";
+
 
     public UserPassDatabase(@Nullable Context context) {//, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, "expenseHandler.db", null, 1);
@@ -63,15 +66,20 @@ public class UserPassDatabase extends SQLiteOpenHelper {
             String databasePassword = cursor.getString(2);
             db.close();
             if(password.equals(databasePassword))
+            {
+                Login_Activity.loggedInUserId = cursor.getString(1);
                 return true;
+            }
         }
         cursor = db.rawQuery(query2,null);
         if(cursor.moveToFirst()){
             String databasePassword = cursor.getString(2);
             db.close();
-            if(password.equals(databasePassword))
+            if(password.equals(databasePassword)) {
+                Login_Activity.loggedInUserId = cursor.getString(1);
                 return true;
             }
+        }
         db.close();
         return false;
     }

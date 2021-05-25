@@ -63,6 +63,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                 if(db.addUser(emailId,userId,pass1)) {
                     Toast.makeText(SignUpActivity.this,"You Have successfully Registered", Toast.LENGTH_LONG).show();
+                    Login_Activity.loggedInUserId = userId;
                 }
                 else {
                     Toast.makeText(SignUpActivity.this,"Error in Registration", Toast.LENGTH_LONG).show();
