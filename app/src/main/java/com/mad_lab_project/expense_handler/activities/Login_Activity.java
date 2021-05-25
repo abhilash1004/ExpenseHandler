@@ -23,11 +23,11 @@ public class Login_Activity extends AppCompatActivity {
         logInbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText idEditText = (EditText) findViewById(R.id.editTextUserId);
+                EditText emailEditText = (EditText) findViewById(R.id.editTextEmailId);
                 EditText passEditText = (EditText) findViewById(R.id.editTextPassword);
 
                 UserPassDatabase db = new UserPassDatabase(Login_Activity.this);
-                if(db.checkCredentialsEntered(idEditText.getText().toString(),passEditText.getText().toString())) {
+                if(db.checkCredentialsEntered(emailEditText.getText().toString(),passEditText.getText().toString())) {
                     Intent sampleActivityIntent = new Intent(Login_Activity.this, SampleDisplayActivity.class);
                     startActivity(sampleActivityIntent);
                 }

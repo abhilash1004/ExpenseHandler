@@ -36,12 +36,13 @@
         >
 
         <EditText
+            android:id="@+id/editTextuserIdregistration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Full Name"
             android:ems="10"
+            android:hint="User Id/Name"
             android:inputType="text"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,12 +56,13 @@
         >
 
         <EditText
+            android:id="@+id/editTextemailidregistration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ems="10"
             android:hint="Email id"
-            android:ems="10"
             android:inputType="textEmailAddress"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,12 +76,13 @@
         >
 
         <EditText
+            android:id="@+id/editTextpasswordRegistration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ems="10"
             android:hint="Password"
-            android:ems="10"
             android:inputType="textWebPassword"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,16 +96,18 @@
         >
 
         <EditText
+            android:id="@+id/editTextRePasswordregistration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Retype Password"
             android:ems="10"
+            android:hint="Retype Password"
             android:inputType="textWebPassword"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/buttonRegister"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="40dp"
