@@ -39,6 +39,7 @@
                 android:id="@+id/TextViewGoalsAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text=""
                 android:textSize="25sp"
                 android:textColor="@color/black"/>
@@ -59,6 +60,7 @@
                 android:id="@+id/TextViewExpenditureAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text=""
                 android:textSize="25sp"
                 android:textColor="@color/black"/>
@@ -79,6 +81,7 @@
                 android:id="@+id/TextViewBalanceAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text=""
                 android:textSize="25sp"
                 android:textColor="@color/black"/>
