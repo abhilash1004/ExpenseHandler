@@ -16,5 +16,6 @@
     <color name="colorPrimaryDark">#2D383F</color>
     <color name="colorAccent">#FF6C02</color>
     <color name="backgroundcolor">#EEEDEF</color>
+    <color name="bluish">#00B4FF</color>
 
 </resources>
