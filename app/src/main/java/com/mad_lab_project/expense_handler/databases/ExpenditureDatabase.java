@@ -24,10 +24,7 @@ public class ExpenditureDatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createTableStatement = "create table " + Table_Expenses + " ( " + COLUMN_EXPENDITURE_ID + " int PRIMARY KEY AUTOINCREMENT, " + COLUMN_USER_ID + " TEXT , " +
-                COLUMN_TRANSACTION_DATE + " Date, " + COLUMN_CATEGORY + " TEXT , " + COLUMN_AMOUNT + " int " +
-                "  , foreign key ( " + COLUMN_USER_ID + " ) References " + UserPassDatabase.TABLE_USER_PASS + "( " + UserPassDatabase.COLUMN_USERID +" )  )";
-        db.execSQL(createTableStatement);
+
 
     }
 
@@ -35,24 +32,31 @@ public class ExpenditureDatabase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+    public void createTable(SQLiteDatabase db) {
+        String createTableStatement = "create table " + Table_Expenses + " ( " + COLUMN_EXPENDITURE_ID + " int PRIMARY KEY AUTOINCREMENT, " + COLUMN_USER_ID + " TEXT , " +
+                COLUMN_TRANSACTION_DATE + " Date, " + COLUMN_CATEGORY + " TEXT , " + COLUMN_AMOUNT + " int " +
+                "  , foreign key ( " + COLUMN_USER_ID + " ) References " + UserPassDatabase.TABLE_USER_PASS + "( " + UserPassDatabase.COLUMN_USERID +" )  )";
+        db.execSQL(createTableStatement);
+    }
+
     public boolean addExpenditure(String userid, String category,String date,int amt){
-        if(!(userid.length()>0 && category.length()>0 && date.length()>0)){
-            return false;
-        }
-        Log.d("ValuesCameForAddition ", "UserId: " + userid + " catgory: " + category + "date: " + date + " amount: " + amt);
-        //String tableInsertStatement = "";
-        SQLiteDatabase db = getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put(COLUMN_USER_ID,userid);
-        cv.put(COLUMN_AMOUNT,amt);
-        cv.put(COLUMN_CATEGORY,category);
-        cv.put(COLUMN_TRANSACTION_DATE,date);
-        if(db.insert(Table_Expenses,null,cv)==-1) {
+            if (!(userid.length() > 0 && category.length() > 0 && date.length() > 0)) {
+                return false;
+            }
+            Log.d("ValuesCameForAddition ", "UserId: " + userid + " catgory: " + category + "date: " + date + " amount: " + amt);
+            //String tableInsertStatement = "";
+            SQLiteDatabase db = getWritableDatabase();
+            ContentValues cv = new ContentValues();
+            cv.put(COLUMN_USER_ID, userid);
+            cv.put(COLUMN_AMOUNT, amt);
+            cv.put(COLUMN_CATEGORY, category);
+            cv.put(COLUMN_TRANSACTION_DATE, date);
+            if (db.insert(Table_Expenses, null, cv) == -1) {
+                db.close();
+                return false;
+            }
             db.close();
-            return false;
-        }
-        db.close();
-        return true;
+            return true;
     }
 
 }

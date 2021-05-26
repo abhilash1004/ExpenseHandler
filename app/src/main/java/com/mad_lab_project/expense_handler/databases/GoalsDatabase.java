@@ -21,15 +21,21 @@ public class GoalsDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
+    public void createTable(SQLiteDatabase db){
         String createTableStatement = "create table " + TABLE_GOALS + " (" + COLUMN_USER_ID + " TEXT, " + COLUMN_AMOUNT_CAP + " int, " +
                 COLUMN_AMOUNT_SPENT + " int," + COLUMN_MONTH + " int," + COLUMN_YEAR + " int, primary key ( " +
                 COLUMN_USER_ID + "," + COLUMN_MONTH + ", " + COLUMN_YEAR + " ), " + "foreign key ( " + COLUMN_USER_ID +
                 " ) references " + UserPassDatabase.TABLE_USER_PASS + "("+UserPassDatabase.COLUMN_USERID + ") )";
         db.execSQL(createTableStatement);
-    }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
 
     }
     public boolean addGoals(String userid,int amountCap,int year,int month){
