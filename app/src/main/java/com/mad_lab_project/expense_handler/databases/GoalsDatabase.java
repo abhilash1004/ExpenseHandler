@@ -2,10 +2,13 @@ package com.mad_lab_project.expense_handler.databases;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.mad_lab_project.expense_handler.activities.Login_Activity;
 
 public class GoalsDatabase extends SQLiteOpenHelper {
     public static final String TABLE_GOALS = "Goals";
@@ -39,15 +42,19 @@ public class GoalsDatabase extends SQLiteOpenHelper {
 
     }
     public boolean addGoals(String userid,int amountCap,int year,int month){
-        if(userid.length()==0)
+        if(userid.length()==0 && month==0)
             return false;
+
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_USER_ID,userid);
         cv.put(COLUMN_AMOUNT_CAP,amountCap);
-        cv.put(COLUMN_AMOUNT_SPENT,0);
+        cv.put(COLUMN_AMOUNT_SPENT,amountSpent(year,month));
         cv.put(COLUMN_MONTH,month);
         cv.put(COLUMN_YEAR,year);
         SQLiteDatabase db = getWritableDatabase();
+        String rawQuery = "delete from " + GoalsDatabase.TABLE_GOALS;
+        db.execSQL(rawQuery);
+
         if(db.insert(TABLE_GOALS,null,cv)==-1) {
             db.close();
             return false;
@@ -55,5 +62,23 @@ public class GoalsDatabase extends SQLiteOpenHelper {
         db.close();
 
         return true;
+    }
+    int amountSpent(int year,int month){
+        int moneySpent = 0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "select * from "+ ExpenditureDatabase.Table_Expenses;
+        Cursor cursor = db.rawQuery(query,null);
+        if(cursor.moveToFirst()){
+            do{
+                int amt = cursor.getInt(4);
+                String date = cursor.getString(2);
+                int extractedMonth = Integer.parseInt(date.substring(5,7));
+                int extractedYear = Integer.parseInt(date.substring(0,4));
+                String userId = cursor.getString(1);
+                if(extractedMonth==month && extractedYear==year && userId.compareTo(Login_Activity.loggedInUserId)==0)
+                    moneySpent+=amt;
+            }while (cursor.moveToNext());
+        }
+        return  moneySpent;
     }
 }
