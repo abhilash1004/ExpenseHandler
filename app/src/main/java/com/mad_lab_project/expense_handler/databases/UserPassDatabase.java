@@ -30,6 +30,32 @@ public class UserPassDatabase extends SQLiteOpenHelper {
         String createTableStatement = "create table " + TABLE_USER_PASS + " ( " + COLUMN_EMAIL + " VARCHAR(254) NOT NULL , " + COLUMN_USERID
                 + " TEXT PRIMARY KEY, " + COLUMN_PASSWORD + " TEXT NOT NULL )";
         db.execSQL(createTableStatement);
+
+         String Table_Expenses = "Expenses";
+         String COLUMN_EXPENDITURE_ID = "ExpenditureId";
+         String COLUMN_USER_ID = "userId";
+         String COLUMN_AMOUNT = "amount";
+         String COLUMN_CATEGORY = "category";
+         String COLUMN_TRANSACTION_DATE = "transactionDate";
+
+        String createTableStatement2 = "create table " + Table_Expenses + " ( " + COLUMN_EXPENDITURE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_USER_ID + " TEXT , " +
+                COLUMN_TRANSACTION_DATE + " Date, " + COLUMN_CATEGORY + " TEXT , " + COLUMN_AMOUNT + " int " +
+                "  , foreign key ( " + COLUMN_USER_ID + " ) References " + UserPassDatabase.TABLE_USER_PASS + "( " + UserPassDatabase.COLUMN_USERID +" )  )";
+        db.execSQL(createTableStatement2);
+
+
+         String TABLE_GOALS = "Goals";
+         String COLUMN_USER_ID_1 = "userId";
+        String COLUMN_AMOUNT_CAP = "amountCap";
+         String COLUMN_AMOUNT_SPENT = "amountSpent";
+         String COLUMN_YEAR = "year";
+         String COLUMN_MONTH = " month";
+
+        String createTableStatement3 = "create table " + TABLE_GOALS + " (" + COLUMN_USER_ID_1 + " TEXT, " + COLUMN_AMOUNT_CAP + " int, " +
+                COLUMN_AMOUNT_SPENT + " int," + COLUMN_MONTH + " int," + COLUMN_YEAR + " int, primary key ( " +
+                COLUMN_USER_ID_1 + "," + COLUMN_MONTH + ", " + COLUMN_YEAR + " ), " + "foreign key ( " + COLUMN_USER_ID_1 +
+                " ) references " + UserPassDatabase.TABLE_USER_PASS + "("+UserPassDatabase.COLUMN_USERID + ") )";
+        db.execSQL(createTableStatement3);
     }
 
     @Override
