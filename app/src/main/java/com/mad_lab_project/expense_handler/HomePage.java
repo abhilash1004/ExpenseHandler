@@ -15,8 +15,6 @@ public class HomePage extends AppCompatActivity {
     CardView cardnew;
     CardView cardedit;
     CardView carddisplay;
-    CardView cardstats;
-    CardView cardsettings;
     CardView cardlogout;
 
     @Override
@@ -27,8 +25,6 @@ public class HomePage extends AppCompatActivity {
         cardnew = findViewById(R.id.cardviewNew);
         cardedit = findViewById(R.id.cardviewEdit);
         carddisplay = findViewById(R.id.cardviewDisplay);
-        cardstats = findViewById(R.id.cardviewStats);
-        cardsettings = findViewById(R.id.cardviewSettings);
         cardlogout = findViewById(R.id.cardviewLogout);
 
 
@@ -55,24 +51,11 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        cardstats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        cardsettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         cardlogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                finish();
+                System.exit(0);
             }
         });
 

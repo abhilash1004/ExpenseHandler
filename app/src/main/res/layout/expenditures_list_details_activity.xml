@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="109dp">
+        android:layout_height="85dp"
+        app:cardBackgroundColor="#FF7F50"
+        android:layout_margin="3dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_color"
+            android:gravity="center"
+            />
         <TextView
             android:id="@+id/textViewAmount"
             android:layout_width="wrap_content"
@@ -15,8 +25,11 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="34dp"
             android:layout_marginTop="40dp"
+            android:textStyle="italic"
+            android:fontFamily="serif"
             android:text="TextView"
-            android:textSize="24sp" />
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/textViewCategory"
@@ -25,11 +38,14 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginStart="164dp"
+            android:layout_marginStart="140dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="123dp"
+            android:textStyle="italic"
+            android:fontFamily="serif"
             android:text="TextView"
-            android:textSize="24sp" />
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

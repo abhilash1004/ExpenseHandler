@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_color1"
     tools:context=".activities.displayExpenditure">
 
-    <TextView
-        android:id="@+id/textViewDateDisplay"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/linearlayoutdate"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="  25-04-2021 "
-        android:textSize="30sp"
-        android:onClick="dateOnClick"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:layout_marginLeft="50dp">
 
     <ImageButton
         android:id="@+id/buttonDateDecrement"
@@ -27,7 +24,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_left_24" />
 
-    <ImageButton
+        <TextView
+            android:id="@+id/textViewDateDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+
+            android:text="  25-04-2021 "
+            android:textSize="30sp"
+            android:onClick="dateOnClick"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/colorAccent"/>
+
+
+        <ImageButton
         android:id="@+id/buttonDateIncrement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,14 +47,42 @@
         app:layout_constraintStart_toEndOf="@+id/textViewDateDisplay"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_right_24" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayoutcontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/linearlayoutdate">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Amount"
+        android:textSize="26sp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/colorAccent"
+        android:textStyle="italic"
+        android:fontFamily="sans-serif-condensed-light"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Category"
+            android:textSize="26sp"
+            android:layout_marginLeft="50dp"
+            android:textColor="@color/colorAccent"
+            android:textStyle="italic"
+            android:fontFamily="sans-serif-condensed-light"/>
+    </LinearLayout>
 
     <ListView
         android:id="@+id/listViewExpenditure"
         android:layout_width="405dp"
         android:layout_height="640dp"
         android:layout_marginEnd="6dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_below="@+id/linearlayoutcontent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
