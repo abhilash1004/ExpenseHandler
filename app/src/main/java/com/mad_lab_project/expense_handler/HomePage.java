@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.mad_lab_project.expense_handler.activities.AddExpenses;
+import com.mad_lab_project.expense_handler.activities.displayExpenditure;
 
 public class HomePage extends AppCompatActivity {
 
@@ -49,7 +50,8 @@ public class HomePage extends AppCompatActivity {
         carddisplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(HomePage.this, displayExpenditure.class);
+                startActivity(intent);
             }
         });
 

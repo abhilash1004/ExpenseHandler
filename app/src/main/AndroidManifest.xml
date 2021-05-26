@@ -9,10 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Expense_Handler">
-
-        <activity android:name=".activities.AddExpenses"></activity>
-        <activity android:name=".HomePage"></activity>
-
+        <activity android:name=".activities.displayExpenditure"></activity>
+        <activity android:name=".activities.AddExpenses" />
+        <activity android:name=".HomePage" />
         <activity android:name=".activities.SampleDisplayActivity" />
         <activity android:name=".activities.SignUpActivity" />
         <activity android:name=".activities.Login_Activity" />

@@ -25,7 +25,7 @@ public class GoalsDatabase extends SQLiteOpenHelper {
                 COLUMN_AMOUNT_SPENT + " int," + COLUMN_MONTH + " int," + COLUMN_YEAR + " int, primary key ( " +
                 COLUMN_USER_ID + "," + COLUMN_MONTH + ", " + COLUMN_YEAR + " ), " + "foreign key ( " + COLUMN_USER_ID +
                 " ) references " + UserPassDatabase.TABLE_USER_PASS + "("+UserPassDatabase.COLUMN_USERID + ") )";
-        //db.execSQL(createTableStatement);
+        db.execSQL(createTableStatement);
     }
 
     @Override

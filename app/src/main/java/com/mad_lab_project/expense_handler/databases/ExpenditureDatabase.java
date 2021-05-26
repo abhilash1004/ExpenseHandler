@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -23,10 +24,10 @@ public class ExpenditureDatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createTableStatement = "create table " + Table_Expenses + " ( " + COLUMN_EXPENDITURE_ID + " int NOT NULL AUTO_INCREMENT , " + COLUMN_USER_ID + " TEXT , " +
-                COLUMN_TRANSACTION_DATE + " Date, " + COLUMN_CATEGORY + " TEXT , " + COLUMN_AMOUNT + " int , primary key ( " + COLUMN_EXPENDITURE_ID +
-                " ) , foreign key ( " + COLUMN_USER_ID + " ) References " + UserPassDatabase.TABLE_USER_PASS + "( " + UserPassDatabase.COLUMN_USERID +" )  )";
-        //db.execSQL(createTableStatement);
+        String createTableStatement = "create table " + Table_Expenses + " ( " + COLUMN_EXPENDITURE_ID + " int PRIMARY KEY AUTOINCREMENT, " + COLUMN_USER_ID + " TEXT , " +
+                COLUMN_TRANSACTION_DATE + " Date, " + COLUMN_CATEGORY + " TEXT , " + COLUMN_AMOUNT + " int " +
+                "  , foreign key ( " + COLUMN_USER_ID + " ) References " + UserPassDatabase.TABLE_USER_PASS + "( " + UserPassDatabase.COLUMN_USERID +" )  )";
+        db.execSQL(createTableStatement);
 
     }
 
@@ -38,6 +39,7 @@ public class ExpenditureDatabase extends SQLiteOpenHelper {
         if(!(userid.length()>0 && category.length()>0 && date.length()>0)){
             return false;
         }
+        Log.d("ValuesCameForAddition ", "UserId: " + userid + " catgory: " + category + "date: " + date + " amount: " + amt);
         //String tableInsertStatement = "";
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
